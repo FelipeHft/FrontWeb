@@ -8,18 +8,18 @@
                   <h3 class="panel-title">Inicie Sesión</h3>
               </div>
               <div class="panel-body">
-                  <form role="form">
+                  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
                       <fieldset>
                           <div class="form-group">
-                              <input class="form-control" placeholder="RUT" name="email" type="email" autofocus>
+                              <input [(ngModel)]="loginModel.rut" class="form-control" placeholder="RUT" name="rut" autofocus required>
                           </div>
                           <div class="form-group">
-                              <input class="form-control" placeholder="Contraseña" name="password" type="password" value="">
+                              <input [(ngModel)]="loginModel.password" class="form-control" placeholder="Contraseña" name="password" type="password" value="" required>
                           </div>
 
                           <!-- Change this to a button or input when using this as a form -->
-                          <a routerLink="/home-estudiante" class="btn btn-lg btn-success btn-block">Entrar Estudiante</a>
-                          <a routerLink="/home-profesor" class="btn btn-lg btn-success btn-block">Entrar Profesor</a>
+                          <button [disabled]="!loginForm.form.valid" routerLink="/home-estudiante" class="btn btn-lg btn-success btn-block">Entrar Estudiante</button>
+                          <button routerLink="/home-profesor" class="btn btn-lg btn-success btn-block">Entrar Profesor</button>
                           <a routerLink="restablecer" style = "text-align: end; display:block"> Olvidé mi contraseña </a>
                       </fieldset>
                   </form>
