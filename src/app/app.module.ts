@@ -12,7 +12,10 @@ import { HomeProfesorComponent } from './pages/home-profesor/home-profesor.compo
 import { RamosProfesorComponent } from './pages/ramos-profesor/ramos-profesor.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RestablecerPwComponent } from './pages/restablecer-pw/restablecer-pw.component';
+import { MenuProfeComponent } from './shared/menu-profe/menu-profe.component';
 
+import { DataService } from './services/data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,15 @@ import { RestablecerPwComponent } from './pages/restablecer-pw/restablecer-pw.co
     RamosProfesorComponent,
     LoginComponent,
     RestablecerPwComponent,
+    MenuProfeComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

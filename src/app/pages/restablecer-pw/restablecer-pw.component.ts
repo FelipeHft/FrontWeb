@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestablecerPwComponent implements OnInit {
 
+  enviado(){
+    alert("Correo enviado");
+  }
+
   constructor() { }
 
   ngOnInit() {
