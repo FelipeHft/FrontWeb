@@ -16,7 +16,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RestablecerPwComponent } from './pages/restablecer-pw/restablecer-pw.component';
 import { MenuProfeComponent } from './shared/menu-profe/menu-profe.component';
 
-import { DataService } from './services/data.service';
+import { HomeEstudianteService } from './services/home-estudiante.service';
 
 
 @NgModule({
@@ -39,7 +39,7 @@ import { DataService } from './services/data.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataService],
+  providers: [HomeEstudianteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
