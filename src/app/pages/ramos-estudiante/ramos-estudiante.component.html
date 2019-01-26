@@ -11,8 +11,9 @@
 
   <div>
     <ul>
-        <li *ngFor="let curso of cursos" (click)="onSelect(curso)"
-         (click)="statCurso(curso.course.ordinal, curso.course.subject.code, curso.course.year, $event)">
+        <li *ngFor="let curso of cursos" 
+        (click)="onSelect(curso)"
+        >
             <span style="color:cornflowerblue">{{ curso.course.subject.name }}</span>
         </li>
 
@@ -32,18 +33,25 @@
                     <tr>
                         <th>Nombre Profesor</th>
                         <th>Mi nota</th>
-                        <th>Promedio</th>
+                        <th>Promedio curso</th>
                         <th>Aprobados</th>
                         <th>Reprobados</th>
                     </tr>
                 </thead>
                 <tbody>
-                        <tr>
-                            <td>{{ selectedCourse.course.teacher.firstName }} {{ selectedCourse.course.teacher.lastName }}</td>
-                            <td>mi nota</td>
-                            <td>{{ selectedCourse.course.ordinal }}</td>
-                            <td>{{ selectedCourse.course.subject.code }}</td>
-                            <td>{{ selectedCourse.course.year }}</td>
+                        <tr *ngFor="let stats of resStats">
+                            <td>{{ stats.course.teacher.firstName }} {{ stats.course.teacher.lastName }}</td>
+                            <td>
+                                <div *ngIf="code == stats.course.code; else elseBlock">
+                                    {{nota}}
+                                </div>
+                                <ng-template #elseBlock>
+                                    -
+                                </ng-template>
+                            </td>
+                            <td>{{ stats.average }}</td>
+                            <td>{{ stats.aproved }}</td>
+                            <td>{{ stats.reproved }}</td>
                         </tr>
                 </tbody>
             </table>

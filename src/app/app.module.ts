@@ -16,7 +16,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { RestablecerPwComponent } from './pages/restablecer-pw/restablecer-pw.component';
 import { MenuProfeComponent } from './shared/menu-profe/menu-profe.component';
 
+
 import { HomeEstudianteService } from './services/home-estudiante.service';
+import { ChartDonutComponent } from './shared/chart-donut/chart-donut.component';
+
 
 
 @NgModule({
@@ -31,7 +34,7 @@ import { HomeEstudianteService } from './services/home-estudiante.service';
     LoginComponent,
     RestablecerPwComponent,
     MenuProfeComponent,
-
+    ChartDonutComponent
   ],
   imports: [
     BrowserModule,

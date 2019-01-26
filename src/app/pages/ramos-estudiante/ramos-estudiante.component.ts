@@ -3,6 +3,7 @@ import { RamosEstudianteService } from '../../services/ramos-estudiante.service'
 import { CourseObject } from '../../interfaces/course-object';
 import { CourseStatsService } from '../../services/course-stats.service';
 
+
 @Component({
   selector: 'app-ramos-estudiante',
   templateUrl: './ramos-estudiante.component.html',
@@ -15,6 +16,12 @@ export class RamosEstudianteComponent implements OnInit {
   tabla = false;
   resp: any;
   stats: any;
+  resStats: any;
+  ordinal: number;
+  subjectCode: string;
+  year: number;
+  nota: any;
+  code: any;
 
   constructor(
     private ramosEstudiante: RamosEstudianteService,
@@ -27,29 +34,22 @@ export class RamosEstudianteComponent implements OnInit {
     var itemFull=JSON.parse(localStorage.getItem('cursos'));
     this.cursos = itemFull;
     this.ramosEstudiante.getDataInicial();
+
   }
 
   onSelect(curso){
     this.selectedCourse = curso;
     this.tabla = true;
-  }
-
-  statCurso(ordinal: number, subjectCode: string, year: number, event: Event){
-    event.preventDefault();
-
-    this.courseStats.stat(ordinal, subjectCode, year).subscribe(
-      resp => {
-        localStorage.setItem('cursoStat', JSON.stringify(resp));
-        var itemStat=JSON.parse(localStorage.getItem('cursoStat'));
-        console.log(itemStat);
-
-      },
-      error => {
-        console.error(error);
-
-      }
-    );
-    
+    this.ordinal = curso.course.ordinal;
+    this.subjectCode = curso.course.subject.code;
+    this.year = curso.course.year;
+    this.nota = curso.grade;
+    this.code = curso.course.code;
+    this.courseStats.preguntarStats(this.ordinal, this.subjectCode, this.year).subscribe(
+      resultadoStats => {
+        localStorage.setItem('cursoStat', JSON.stringify(resultadoStats));
+        this.resStats = resultadoStats;
+      });
   }
 
 
