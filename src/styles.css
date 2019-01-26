@@ -1505,7 +1505,7 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #fff;
   font-size: 13px;
-  color: #6a6c6f;
+  color: #c4c4c4;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -2323,7 +2323,7 @@ body.fullscreen-panel-mode {
 }
 .navbar.navbar-static-top a,
 .nav.navbar-nav li a {
-  color: #9d9fa2;
+  color: #e0e0e0;
 }
 .header-link {
   padding: 18px 26px 17px 26px;
