@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RamosProfesorService } from 'src/app/services/ramos-profesor.service';
+import { CourseObject } from '../../interfaces/course-object';
 
 @Component({
   selector: 'app-ramos-profesor',
@@ -9,6 +10,8 @@ import { RamosProfesorService } from 'src/app/services/ramos-profesor.service';
 export class RamosProfesorComponent implements OnInit {
 
   ramosProfe: any;
+  tabla = false;
+  selectedCourse: CourseObject;
 
   constructor(private ramosProfesor: RamosProfesorService) { }
 
@@ -17,6 +20,11 @@ export class RamosProfesorComponent implements OnInit {
     var cursosTeacher=JSON.parse(localStorage.getItem('ramosProfe'));
     this.ramosProfe = cursosTeacher;
     console.log(this.ramosProfe);
+  }
+
+  onSelect(curso){
+    this.selectedCourse = curso;
+    this.tabla = true;
   }
 
 }
