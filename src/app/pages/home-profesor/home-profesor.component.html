@@ -12,30 +12,29 @@
   <div class="row">
       <div class="col-lg-4">
           <div class="">
-              <h4>Nombre Profesor:</h4>
+              <h4>Nombre Profesor: {{ nombres }} {{ apellidos }}</h4>
           </div>
           <div class="">
-              Cantidad de ramos impartidos: x
+              Cantidad de ramos impartidos: {{ largo }}
           </div>
           <div class="">
-              Cantidad de alumnos aprobados: x
+              Cantidad de alumnos aprobados: {{ aprobados }}
           </div>
           <div class="">
-              Cantidad de alumnos reprobados: x
+              Cantidad de alumnos reprobados: {{ reprobados }}
           </div>
           <div class="">
-              Promedio cursos: x
+              Promedio cursos: {{ promedio }}
           </div>
-          <div class="">
-              Desviación estándar: x
-          </div>
-          <br>
+
           <br>
           <br>
           <div class="">
             <a routerLink="/ramos-profesor" class="btn btn-info" type="button" name="button">Detalle Ramos</a>
           </div>
       </div>
+      <br>
+      <br>
 
       <div class="col-lg-8">
           <div class="panel panel-default">

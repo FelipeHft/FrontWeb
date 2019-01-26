@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeEstudianteService } from '../../services/home-estudiante.service';
+import { CourseStatsService } from '../../services/course-stats.service';
 
 @Component({
   selector: 'app-home-estudiante',
@@ -23,7 +24,7 @@ export class HomeEstudianteComponent implements OnInit {
 
     var item=JSON.parse(localStorage.getItem('currentUser'));
     var itemFull=JSON.parse(localStorage.getItem('ranking'));
-    console.log(itemFull);
+    //console.log(itemFull);
     this.nombres = itemFull.student.firstName;
     this.apellidos = itemFull.student.lastName;
     this.promedio = itemFull.average;
@@ -31,5 +32,6 @@ export class HomeEstudianteComponent implements OnInit {
     this.ranking = itemFull.position;
     this.homeEstudiante.getDataInicial();
   }
+
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RamosEstudianteService } from '../../services/ramos-estudiante.service';
+import { CourseObject } from '../../interfaces/course-object';
+import { CourseStatsService } from '../../services/course-stats.service';
 
 @Component({
   selector: 'app-ramos-estudiante',
@@ -8,15 +10,47 @@ import { RamosEstudianteService } from '../../services/ramos-estudiante.service'
 })
 export class RamosEstudianteComponent implements OnInit {
 
-  constructor(private ramosEstudiante: RamosEstudianteService) { }
+  cursos: CourseObject[];
+  selectedCourse: CourseObject;
+  tabla = false;
+  resp: any;
+  stats: any;
+
+  constructor(
+    private ramosEstudiante: RamosEstudianteService,
+    private courseStats: CourseStatsService
+    ) { }
+   
 
   ngOnInit() {
 
-    var item=JSON.parse(localStorage.getItem('currentUser'));
     var itemFull=JSON.parse(localStorage.getItem('cursos'));
-    console.log(item)
-    console.log(itemFull);
+    this.cursos = itemFull;
     this.ramosEstudiante.getDataInicial();
   }
+
+  onSelect(curso){
+    this.selectedCourse = curso;
+    this.tabla = true;
+  }
+
+  statCurso(ordinal: number, subjectCode: string, year: number, event: Event){
+    event.preventDefault();
+
+    this.courseStats.stat(ordinal, subjectCode, year).subscribe(
+      resp => {
+        localStorage.setItem('cursoStat', JSON.stringify(resp));
+        var itemStat=JSON.parse(localStorage.getItem('cursoStat'));
+        console.log(itemStat);
+
+      },
+      error => {
+        console.error(error);
+
+      }
+    );
+    
+  }
+
 
 }

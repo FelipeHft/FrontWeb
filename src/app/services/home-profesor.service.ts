@@ -17,17 +17,18 @@ export class HomeProfesorService {
     this.getData().subscribe(
       (resp: any) => {
         this.restItems = resp;
-        console.log(this.restItems);
+        localStorage.setItem('teacher', JSON.stringify(resp));
       }
     )
   }
 
   getData(){
+    var item=JSON.parse(localStorage.getItem('currentUser'));
     const headers=new HttpHeaders({
       "Content-Type":"*/*",
-      "X-API-KEY":"c45d2f8d-4e6b-4d01-8607-25b316d06c12"
+      "X-API-KEY": item.apiKey
     })
-    return this.http.get<any[]>('https://api.sebastian.cl/academia/api/v1/rankings/10.471.648-2',{headers})
+    return this.http.get<any[]>(`https://api.sebastian.cl/academia/api/v1/teachers/${item.rut}`,{headers})
     .pipe(map(data=>data));
   }
 }

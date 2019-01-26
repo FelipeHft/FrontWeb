@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RamosProfesorService } from 'src/app/services/ramos-profesor.service';
 
 @Component({
   selector: 'app-ramos-profesor',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RamosProfesorComponent implements OnInit {
 
-  constructor() { }
+  ramosProfe: any;
+
+  constructor(private ramosProfesor: RamosProfesorService) { }
 
   ngOnInit() {
+
+    var cursosTeacher=JSON.parse(localStorage.getItem('ramosProfe'));
+    this.ramosProfe = cursosTeacher;
+    console.log(this.ramosProfe);
   }
 
 }

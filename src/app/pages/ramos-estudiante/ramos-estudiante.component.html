@@ -4,26 +4,25 @@
 
 <div id="page-wrapper">
   <div class="row">
-    <h1 class="page-header">Detalle Ramos</h1>
+    <h1 class="page-header">Detalle Ramos Cursados</h1>
   </div>
-
+  <div><p>Seleccione el ramo para más información</p></div>
   <img src="../assets/img/book.png"align="right" width="14%" height="14%" hspace="100">
 
-  <ul>
-  <li><a href="">Ramo 1</a></li>
+  <div>
+    <ul>
+        <li *ngFor="let curso of cursos" (click)="onSelect(curso)"
+         (click)="statCurso(curso.course.ordinal, curso.course.subject.code, curso.course.year, $event)">
+            <span style="color:cornflowerblue">{{ curso.course.subject.name }}</span>
+        </li>
 
-  <li><a href="">Ramo 2</a></li>
-
-  <li><a href="">Ramo 3</a></li>
-  </ul>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="panel panel-default">
+    </ul>
+  </div>
+ 
+  
+  <div *ngIf="tabla" class="panel panel-default">
     <div class="panel-heading">
-        Nombre Ramo
+        {{ selectedCourse.course.subject.name }}
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
@@ -32,30 +31,20 @@
                 <thead>
                     <tr>
                         <th>Nombre Profesor</th>
+                        <th>Mi nota</th>
                         <th>Promedio</th>
                         <th>Aprobados</th>
                         <th>Reprobados</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>nombre 1</td>
-                        <td>prom 1</td>
-                        <td>cant aprobados 1</td>
-                        <td>cant reprobados 1</td>
-                    </tr>
-                    <tr>
-                        <td>nombre 2</td>
-                        <td>prom 2</td>
-                        <td>cant aprobados 2</td>
-                        <td>cant reprobados 2</td>
-                    </tr>
-                    <tr>
-                        <td>nombre 3</td>
-                        <td>prom 3</td>
-                        <td>cant aprobados 3</td>
-                        <td>cant reprobados 3</td>
-                    </tr>
+                        <tr>
+                            <td>{{ selectedCourse.course.teacher.firstName }} {{ selectedCourse.course.teacher.lastName }}</td>
+                            <td>mi nota</td>
+                            <td>{{ selectedCourse.course.ordinal }}</td>
+                            <td>{{ selectedCourse.course.subject.code }}</td>
+                            <td>{{ selectedCourse.course.year }}</td>
+                        </tr>
                 </tbody>
             </table>
         </div>

@@ -5,30 +5,25 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class RamosProfesorService {
+export class CourseStatsService {
 
-  restItems: any;
 
   constructor(private http: HttpClient) {
-    this.getData();
    }
 
-  getDataInicial(){
-    this.getData().subscribe(
-      (resp: any) => {
-        this.restItems = resp;
-        localStorage.setItem('ramosProfe', JSON.stringify(resp));
-      }
-    )
-  }
-
-  getData(){
+   stat(ordinal:number, subjectCode:string, year:number){
     var item=JSON.parse(localStorage.getItem('currentUser'));
     const headers=new HttpHeaders({
       "Content-Type":"*/*",
       "X-API-KEY": item.apiKey
-    })
-    return this.http.get<any[]>(`https://api.sebastian.cl/academia/api/v1/courses/teachers/${item.rut}/stats`,{headers})
+    })  
+    return this.http.post<any[]>( `https://api.sebastian.cl/academia/api/v1/courses/subject/stats`,{
+      ordinal: ordinal,
+      subjectCode: subjectCode,
+      year: year
+    }, {headers})
     .pipe(map(data=>data));
   }
+  
+
 }
