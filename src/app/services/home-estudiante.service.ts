@@ -17,17 +17,11 @@ export class HomeEstudianteService {
     this.getData().subscribe(
       (resp: any) => {
         this.restItems = resp;
-        //console.log(this.restItems);
-
         localStorage.setItem('ranking', JSON.stringify(resp));
-        var itemFull=JSON.parse(localStorage.getItem('ranking'));
-        //console.log(itemFull);
-          
       }
     )
   }
 
-  
   getData(){
     var item=JSON.parse(localStorage.getItem('currentUser'));
     const headers=new HttpHeaders({
