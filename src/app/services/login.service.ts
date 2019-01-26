@@ -9,7 +9,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(rut:string, password:string ) {
-    return this.http.post('https://api.sebastian.cl/academia/api/v1/authentication/authenticate', {
+    return this.http.post('http://138.68.23.14/api/v1/authentication/authenticate', {
       rut: rut,
       password: password,     
     });     

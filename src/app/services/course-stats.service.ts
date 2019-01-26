@@ -17,7 +17,7 @@ export class CourseStatsService {
       "Content-Type":"application/json;charset=UTF-8",
       "X-API-KEY": item.apiKey
     })  
-    return this.http.post<any[]>( 'https://api.sebastian.cl/academia/api/v1/courses/subject/stats',{
+    return this.http.post<any[]>( 'http://138.68.23.14/api/v1/courses/subject/stats',{
       ordinal: ordinal,
       subjectCode: subjectCode,
       year: year

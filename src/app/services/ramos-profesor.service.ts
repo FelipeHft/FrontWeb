@@ -28,7 +28,7 @@ export class RamosProfesorService {
       "Content-Type":"*/*",
       "X-API-KEY": item.apiKey
     })
-    return this.http.get<any[]>(`https://api.sebastian.cl/academia/api/v1/courses/teachers/${item.rut}/stats`,{headers})
+    return this.http.get<any[]>(`http://138.68.23.14/api/v1/courses/teachers/${item.rut}/stats`,{headers})
     .pipe(map(data=>data));
   }
 }

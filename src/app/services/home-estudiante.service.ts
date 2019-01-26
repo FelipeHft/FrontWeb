@@ -28,7 +28,7 @@ export class HomeEstudianteService {
       "Content-Type":"*/*",
       "X-API-KEY": item.apiKey
     })
-    return this.http.get<any[]>(`https://api.sebastian.cl/academia/api/v1/rankings/${item.rut}`,{headers})
+    return this.http.get<any[]>(`http://138.68.23.14/api/v1/rankings/${item.rut}`,{headers})
     .pipe(map(data=>data));
   }
 }
