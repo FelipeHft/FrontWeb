@@ -12,22 +12,20 @@
   <div class="row">
       <div class="col-lg-4">
           <div class="">
-              <h4>Nombre Profesor: {{ nombres }} {{ apellidos }}</h4>
+                <h4><b>Nombre Profesor(a):</b> {{ nombres }} {{ apellidos }}</h4>
           </div>
           <div class="">
-              Cantidad de ramos impartidos: {{ largo }}
+             <b>Cantidad de ramos impartidos:</b> {{ largo }}
           </div>
           <div class="">
-              Cantidad de alumnos aprobados: {{ aprobados }}
+              <b>Cantidad de alumnos aprobados:</b> {{ aprobados }}
           </div>
           <div class="">
-              Cantidad de alumnos reprobados: {{ reprobados }}
+              <b>Cantidad de alumnos reprobados:</b> {{ reprobados }}
           </div>
           <div class="">
-              Promedio cursos: {{ promedio }}
+              <b>Promedio cursos:</b> {{ promedio }}
           </div>
-
-          <br>
           <br>
           <div class="">
             <a routerLink="/ramos-profesor" class="btn btn-info" type="button" name="button">Detalle Ramos</a>
@@ -36,20 +34,5 @@
       <br>
       <br>
 
-      <div class="col-lg-8">
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  Alumnos aprovados vs reprobados
-              </div>
-              <!-- /.panel-heading -->
-              <div class="panel-body">
-                  <div class="flot-chart">
-                      <div class="flot-chart-content" id="alumos-ap-vs-rep"></div>
-                  </div>
-              </div>
-              <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-      </div>
     </div>
   </div>

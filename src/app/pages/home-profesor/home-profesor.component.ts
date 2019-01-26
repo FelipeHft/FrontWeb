@@ -32,11 +32,9 @@ export class HomeProfesorComponent implements OnInit {
     this.teacher = datosTeacher;
     this.ramosProfe = cursosTeacher;
     
-    console.log(this.teacher);
     this.nombres = this.teacher.firstName;
     this.apellidos = this.teacher.lastName;
     this.largo = this.ramosProfe.length;
-    console.log(this.ramosProfe);
 
     var i;
     for(i=0; i<this.largo; i++){

@@ -11,7 +11,8 @@
 
   <div>
     <ul>
-        <li *ngFor="let ramo of ramosProfe">
+        <li *ngFor="let ramo of ramosProfe"
+        (click)="onSelect(ramo)">
             <span style="color:cornflowerblue">{{ ramo.course.subject.name }}</span>
         </li>
 
@@ -20,9 +21,9 @@
 <br>
 <br>
 
-  <div class="panel panel-default">
+  <div *ngIf="tabla" class="panel panel-default">
       <div class="panel-heading">
-          Nombre Ramo
+            {{ selectedCourse.course.subject.name }}
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -37,23 +38,11 @@
                       </tr>
                   </thead>
                   <tbody>
-                      <tr>
-                          <td>nombre 1</td>
-                          <td>prom 1</td>
-                          <td>cant aprobados 1</td>
-                          <td>cant reprobados 1</td>
-                      </tr>
-                      <tr>
-                          <td>nombre 2</td>
-                          <td>prom 2</td>
-                          <td>cant aprobados 2</td>
-                          <td>cant reprobados 2</td>
-                      </tr>
-                      <tr>
-                          <td>nombre 3</td>
-                          <td>prom 3</td>
-                          <td>cant aprobados 3</td>
-                          <td>cant reprobados 3</td>
+                      <tr *ngFor="let stats of resStats">
+                          <td>{{ stats.course.teacher.firstName }} {{ stats.course.teacher.lastName }}</td>
+                          <td>{{ stats.average }}</td>
+                          <td>{{ stats.aproved }}</td>
+                          <td>{{ stats.reproved }}</td>
                       </tr>
                   </tbody>
               </table>
