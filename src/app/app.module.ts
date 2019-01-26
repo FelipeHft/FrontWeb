@@ -18,6 +18,7 @@ import { ChartDonutComponent } from './shared/chart-donut/chart-donut.component'
 
 import { HomeEstudianteService } from './services/home-estudiante.service';
 import { ChartsModule } from 'ng2-charts';
+import { ChartLineComponent } from './shared/chart-line/chart-line.component';
 
 
 
@@ -34,7 +35,8 @@ import { ChartsModule } from 'ng2-charts';
     LoginComponent,
     RestablecerPwComponent,
     MenuProfeComponent,
-    ChartDonutComponent
+    ChartDonutComponent,
+    ChartLineComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,6 @@ export class UserService {
    setUserLoggedIn(user) {
     this.isUserLoggedIn = true;
     localStorage.setItem('currentUser', JSON.stringify(user));
-    console.log(localStorage.getItem('currentUser'));
   }
 
   getUserLoggedIn() {

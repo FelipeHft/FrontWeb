@@ -30,17 +30,13 @@ export class LoginComponent implements OnInit {
       resp => {
           localStorage.setItem('currentUser', JSON.stringify(resp));
           var item=JSON.parse(localStorage.getItem('currentUser'));
-          console.log(item.rut);
-          console.log(item.apiKey);
-          console.log(item.email);
-          console.log(item.role);
         
         //console.log(res);
         this.userService.setUserLoggedIn(resp);
       
       },
       error => {
-        console.error(error);
+        //console.error(error);
 
       },
 
