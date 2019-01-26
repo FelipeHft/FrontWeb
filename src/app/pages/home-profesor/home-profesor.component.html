@@ -33,6 +33,11 @@
       </div>
       <br>
       <br>
-
+    </div>
+    <div>
+        <app-chart-donut
+        [pieChartLabels]="['Alumnos Aprobados','Alumnos Reprobados']"
+        [pieChartData]= "[ aprobados, reprobados]">
+        </app-chart-donut>
     </div>
   </div>
