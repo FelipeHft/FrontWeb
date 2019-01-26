@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -15,10 +14,11 @@ import { RamosProfesorComponent } from './pages/ramos-profesor/ramos-profesor.co
 import { LoginComponent } from './pages/login/login.component';
 import { RestablecerPwComponent } from './pages/restablecer-pw/restablecer-pw.component';
 import { MenuProfeComponent } from './shared/menu-profe/menu-profe.component';
-
+import { ChartDonutComponent } from './shared/chart-donut/chart-donut.component';
 
 import { HomeEstudianteService } from './services/home-estudiante.service';
-import { ChartDonutComponent } from './shared/chart-donut/chart-donut.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 
 
@@ -40,7 +40,8 @@ import { ChartDonutComponent } from './shared/chart-donut/chart-donut.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [HomeEstudianteService],
   bootstrap: [AppComponent]

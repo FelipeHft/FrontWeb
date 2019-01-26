@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chart-donut',
@@ -11,5 +11,9 @@ export class ChartDonutComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() pieChartLabels:string[];
+  @Input() pieChartData:number[];
+  public pieChartType:string = 'pie';
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HomeEstudianteService } from '../../services/home-estudiante.service';
 import { CourseStatsService } from '../../services/course-stats.service';
 import { CourseObject } from '../../interfaces/course-object';
+import { ChartDonutComponent } from '../../shared/chart-donut/chart-donut.component';
+
 
 @Component({
   selector: 'app-home-estudiante',
