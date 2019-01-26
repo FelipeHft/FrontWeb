@@ -11,8 +11,7 @@
 
   <div>
     <ul>
-        <li *ngFor="let ramo of ramosProfe"
-        (click)="onSelect(ramo)">
+        <li *ngFor="let ramo of ramosProfe">
             <span style="color:cornflowerblue">{{ ramo.course.subject.name }}</span>
         </li>
 
@@ -21,7 +20,7 @@
 <br>
 <br>
 
-  <div *ngIf="tabla" class="panel panel-default">
+  <div class="panel panel-default">
       <div class="panel-heading">
           Nombre Ramo
       </div>
